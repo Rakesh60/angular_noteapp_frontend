@@ -8,19 +8,19 @@ import { PostService } from '../services/post.service';
 })
 
 export class NotesComponent {
-  data={};
-  myData=[]
-  constructor(private noteData:PostService){
-    this.data=this.noteData;
-  this.noteData.getNotes().subscribe((res)=>{
-    this.data=res
-  });
-  };
-  getAllNotes(){
-    console.log(this.data)
-    
-  }
-  
+  data = {};
 
-  
+  constructor(private noteData: PostService) {
+
+    this.noteData.getNotes().subscribe((res) => {
+      this.data = res
+    });
+  };
+  getAllNotes() {
+    console.log(this.data)
+
+  }
+
+
+
 }
