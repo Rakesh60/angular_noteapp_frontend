@@ -1,0 +1,24 @@
+<p>users works!</p>
+
+<h1 class="bg-warning text-primary text-center">
+  User Data
+  <table></table>
+</h1>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let i of posts">
+      <td>{{ i._id }}</td>
+      <td>{{ i.firstName }}</td>
+      <td>{{ i.lastName }}</td>
+      <td>{{ i.email }}</td>
+    </tr>
+  </tbody>
+</table>

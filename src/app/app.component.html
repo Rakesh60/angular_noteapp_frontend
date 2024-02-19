@@ -8,17 +8,20 @@
  
 </ul> -->
 
-<table border="1">
+<!-- <table border="1">
   <tr>
     <th>ID</th>
     <th>First Name</th>
     <th>Last Name</th>
-    <th>Age</th>
+    <th>Email</th>
   </tr>
   <tr *ngFor="let i of posts">
-    <td>{{i.id}}</td>
-    <td> {{i.firstName}}</td>
-    <td> {{i.lastName}}</td>
-    <td>{{i.age}}</td>
+    <td>{{ i._id }}</td>
+    <td>{{ i.firstName | uppercase }}</td>
+    <td>{{ i.lastName }}</td>
+    <td>{{ i.email }}</td>
   </tr>
-</table>
+</table> -->
+<app-users></app-users>
+<app-userform></app-userform>
+<app-notes></app-notes>

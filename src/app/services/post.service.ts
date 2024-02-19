@@ -5,9 +5,14 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class PostService {
-  private url='http://localhost:8080/user';
+  private url='http://localhost:8080/users';
   constructor(private httpClient:HttpClient) { }
   getPosts(){
     return this.httpClient.get(this.url)
   }
+  getNotes(){
+    
+    return this.httpClient.get('http://localhost:8080/products')
+  }
+ 
 }
