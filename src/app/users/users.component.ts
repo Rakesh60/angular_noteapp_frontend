@@ -1,23 +1,29 @@
-import { Component,OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PostService } from '../services/post.service';
 
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
-  styleUrl: './users.component.css'
+  styleUrls: ['./users.component.css'] // Corrected styleUrl to styleUrls
 })
 export class UsersComponent implements OnInit {
-  title = 'noteapp';
-  posts:any;
-  constructor(private service:PostService){
+  posts: any;
 
-  }
+  constructor(private service: PostService) {}
+
   ngOnInit(): void {
-    this.service.getPosts().subscribe(res=>{
-      this.posts=res;
-      console.log(this.posts)
-      
-    })
+    this.fetchUsers();
   }
-  
+
+  fetchUsers(): void {
+    this.service.getUsers().subscribe(
+      (res) => {
+        this.posts = res;
+        console.log(this.posts);
+      },
+      (error) => {
+        console.error('Error fetching users:', error);
+      }
+    );
+  }
 }

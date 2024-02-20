@@ -1,22 +1,27 @@
-import { Injectable } from '@angular/core';
+import { Injectable, SimpleChanges } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { DoCheck } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PostService {
-  private products: any[] = []; // Specify the correct type here, or use 'any'
-  private url = 'http://localhost:8080/users';
-
+export class PostService implements DoCheck {
+  private url = 'http://localhost:8080/';
+ ngDoCheck(): void {
+   this.getNotes()
+ }
   constructor(private httpClient: HttpClient) { }
 
-  getPosts(): Observable<any> {
-    return this.httpClient.get(this.url);
+  getUsers(): Observable<any> {
+    return this.httpClient.get(`${this.url}users`);
   }
 
   getNotes(): Observable<any> {
     // Return the observable directly here
-    return this.httpClient.get('http://localhost:8080/notes');
+    return this.httpClient.get(`${this.url}notes`);
+  }
+  sendData(formData: any): Observable<any> {
+    return this.httpClient.post(`${this.url}notes`, formData);
   }
 }

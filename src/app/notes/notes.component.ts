@@ -8,21 +8,21 @@ import { PostService } from '../services/post.service';
 
 export class NotesComponent  {
   data: any;
-  note: any;
+  showCardSection:boolean=false;
+
 
   constructor(private noteData: PostService) {
 
     this.noteData.getNotes().subscribe((res) => {
       this.data = res
+      console.log(this.data[0]._id)
     });
+    
   };
  
-  getAllNotes() {
-    console.log(this.data)
-    console.log(this.data[0].thumbnail)
-    this.note = [...this.data]
 
+  toggleCardSection() {
+    this.showCardSection = !this.showCardSection;
   }
-
 
 }

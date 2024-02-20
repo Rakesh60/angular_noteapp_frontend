@@ -1,4 +1,4 @@
-<h1>Data Fetching</h1>
+<h1 class="text-center bg-light">Notes App </h1>
 <!-- <ul *ngFor="let i of posts">
   <li > {{i.id}}</li>
   <li > {{i.firstName}}</li>
@@ -22,7 +22,34 @@
     <td>{{ i.email }}</td>
   </tr>
 </table> -->
-<app-users></app-users>
+<!-- <app-users></app-users>
 <app-userform></app-userform>
 <app-notes></app-notes>
+<app-notes-form></app-notes-form> -->
 
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/users">Users</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/userform">User Form</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/notes">Notes</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/notesform">Add Notes Form</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container mt-3">
+  <router-outlet></router-outlet>
+</div> 

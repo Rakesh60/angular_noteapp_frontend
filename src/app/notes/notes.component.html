@@ -1,12 +1,14 @@
 <div class="container">
   <p>notes works!</p>
-<button (click)="getAllNotes()">Click to get all notes</button>
 
-<div class="card m-4" style="width: 18rem" *ngFor="let d of note">
- <h1>{{d.title}}</h1>
- <p>{{d.content}}</p>
- <p>{{d.
-  createdAt|date
-  }}</p>
-</div>
+  <button class="btn btn-warning mb-3" (click)="toggleCardSection()">Get All Notes</button>
+
+  <div *ngIf="showCardSection"> <!-- ngIf remains on the card container -->
+    <div class="card m-4" style="width: 18rem" *ngFor="let d of data">
+      <h1>{{d.title}}</h1>
+      <p>{{d.content}}</p>
+      <p>{{d.createdAt | date}}</p>
+      <input type="hidden" name="" value="{{d._id}}">
+    </div>
+  </div>
 </div>
