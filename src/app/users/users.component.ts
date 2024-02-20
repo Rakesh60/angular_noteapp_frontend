@@ -16,6 +16,7 @@ export class UsersComponent implements OnInit {
     this.service.getPosts().subscribe(res=>{
       this.posts=res;
       console.log(this.posts)
+      
     })
   }
   

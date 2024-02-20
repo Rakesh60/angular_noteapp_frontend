@@ -1,14 +1,12 @@
-<p>notes works!</p>
+<div class="container">
+  <p>notes works!</p>
 <button (click)="getAllNotes()">Click to get all notes</button>
 
-<div class="card" style="width: 18rem">
-  <img src="..." class="card-img-top" alt="..." />
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">
-      Some quick example text to build on the card title and make up the bulk of
-      the card's content.
-    </p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
+<div class="card m-4" style="width: 18rem" *ngFor="let d of note">
+ <h1>{{d.title}}</h1>
+ <p>{{d.content}}</p>
+ <p>{{d.
+  createdAt|date
+  }}</p>
+</div>
 </div>
