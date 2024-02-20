@@ -7,13 +7,14 @@ import { PostService } from '../services/post.service';
   styleUrls: ['./notes-form.component.css']
 })
 export class NotesFormComponent {
+
   formData: any = {
     title: '',
     content: '',
-   
+
   };
 
-  constructor(private postService: PostService) {}
+  constructor(private postService: PostService) { }
 
   onSubmit(): void {
     this.postService.sendData(this.formData)
@@ -21,10 +22,10 @@ export class NotesFormComponent {
         (response) => {
           console.log('Data sent successfully:', response);
           alert(response.title)
-          this.formData= {
+          this.formData = {
             title: '',
             content: '',
-           
+
           }
           // Optionally, reset the form
           // this.resetForm();
@@ -34,4 +35,7 @@ export class NotesFormComponent {
         }
       );
   }
+
 }
+
+//

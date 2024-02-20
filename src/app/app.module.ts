@@ -9,13 +9,15 @@ import { NotesComponent } from './notes/notes.component';
 import { NotesFormComponent } from './notes-form/notes-form.component';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterModule, Routes } from '@angular/router';
+import { UpdateFormComponent } from './update-form/update-form.component';
 
 const routes: Routes = [
   { path: 'users', component: UsersComponent },
   { path: 'userform', component: UserformComponent },
   { path: 'notes', component: NotesComponent },
   { path: 'notesform', component: NotesFormComponent },
-  { path: '', redirectTo: '/users', pathMatch: 'full' } // Default route
+  { path: '', redirectTo: '/users', pathMatch: 'full' }, // Default route
+  { path: 'notes/update/:id', component: UpdateFormComponent }
 ];
 
 
@@ -27,6 +29,7 @@ const routes: Routes = [
     UserformComponent,
     NotesComponent,
     NotesFormComponent,
+    UpdateFormComponent,
   ],
   imports: [
     BrowserModule,

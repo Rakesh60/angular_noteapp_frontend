@@ -1,14 +1,24 @@
 <div class="container">
   <p>notes works!</p>
 
-  <button class="btn btn-warning mb-3" (click)="toggleCardSection()">Get All Notes</button>
+  <button class="btn btn-warning mb-3" (click)="toggleCardSection()">
+    Get All Notes
+  </button>
 
-  <div *ngIf="showCardSection"> <!-- ngIf remains on the card container -->
+  <div *ngIf="showCardSection">
+    <!-- ngIf remains on the card container -->
     <div class="card m-4" style="width: 18rem" *ngFor="let d of data">
-      <h1>{{d.title}}</h1>
-      <p>{{d.content}}</p>
-      <p>{{d.createdAt | date}}</p>
-      <input type="hidden" name="" value="{{d._id}}">
+      <h1>{{ d.title }}</h1>
+      <p>{{ d.content }}</p>
+      <p>{{ d.createdAt | date }}</p>
+      <input type="hidden" name="" value="{{ d._id }}" />
+      <button class="btn btn-small btn-danger" (click)="deleteNote(d._id)">
+        Delete
+      </button>
+      <!-- Add the update button -->
+      <button class="btn btn-small btn-primary" (click)="updateNoteForm(d._id)">
+        Update
+      </button>
     </div>
   </div>
 </div>

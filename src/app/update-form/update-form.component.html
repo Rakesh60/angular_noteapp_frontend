@@ -1,5 +1,5 @@
 <div class="container">
-  <form (ngSubmit)="onSubmit()" #formDataForm="ngForm">
+  <form #formDataForm="ngForm">
     <div class="form-group">
       <label for="title">Title:</label>
       <input
@@ -22,6 +22,8 @@
       ></textarea>
     </div>
 
-    <button type="submit" class="btn btn-success mt-2">Add note</button>
+    <button type="submit" class="btn btn-success mt-2" (ngSubmit)="onSubmit()">
+      Update note
+    </button>
   </form>
 </div>
