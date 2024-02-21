@@ -1,24 +1,24 @@
 <div class="container">
   <p>notes works!</p>
-  <p>You have Total {{ data.length }} Notes</p>
+  <p>You have Total {{ data?data.length:'0' }} Notes</p>
   <button class="btn btn-warning mb-3" (click)="toggleCardSection()">
     Get All Notes
   </button>
 
   <div *ngIf="showCardSection">
-    <!-- ngIf remains on the card container -->
-    <div class="card m-4" style="width: 18rem" *ngFor="let d of data">
-      <h1>{{ d.title }}</h1>
-      <p>{{ d.content }}</p>
-      <p>{{ d.createdAt | date }}</p>
-      <input type="hidden" name="" value="{{ d._id }}" />
-      <button class="btn btn-small btn-danger" (click)="deleteNote(d._id)">
-        Delete
-      </button>
-      <!-- Add the update button -->
-      <button class="btn btn-small btn-primary" (click)="updateNoteForm(d._id)">
-        Update
-      </button>
+    <div class="row">
+        <div class="col-md-1 col-lg-4" *ngFor="let d of data">
+            <div class="card mt-3 " >
+                <h1>{{ d.title }}</h1>
+                <p>{{ d.content }}</p>
+                <p>{{ d.createdAt | date }}</p>
+                <input type="hidden" name="" value="{{ d._id }}" />
+                <button class="btn btn-small btn-danger" (click)="deleteNote(d._id)">Delete</button>
+                <button class="btn btn-small btn-primary" (click)="updateNoteForm(d._id)">Update</button>
+                <div></div>
+            </div>
+        </div>
     </div>
-  </div>
+</div>
+
 </div>
