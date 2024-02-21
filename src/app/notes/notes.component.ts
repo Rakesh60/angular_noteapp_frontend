@@ -24,7 +24,7 @@ export class NotesComponent {
   }
 
   deleteNote(noteId: string) {
-    
+
     this.noteData.deleteNote(noteId).subscribe(
       (res) => {
         alert('You are deleting a note')

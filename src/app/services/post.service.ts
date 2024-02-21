@@ -6,8 +6,9 @@ import { DoCheck } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
+//http://192.168.1.106:4200/notes
 export class PostService implements DoCheck {
-  private url = 'http://localhost:8080/';
+  private url = 'http://192.168.1.106:8080/';
   ngDoCheck(): void {
     this.getNotes()
   }
