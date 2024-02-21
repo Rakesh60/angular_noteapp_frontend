@@ -1,4 +1,4 @@
-<h1 class="text-center bg-light">Notes App </h1>
+<h1 class="text-center bg-light">Notes App</h1>
 <!-- <ul *ngFor="let i of posts">
   <li > {{i.id}}</li>
   <li > {{i.firstName}}</li>
@@ -27,19 +27,15 @@
 <app-notes></app-notes>
 <app-notes-form></app-notes-form> -->
 
-
-
-
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" routerLink="/users">Users</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="/userform">User Form</a>
-      </li>
+      </li> -->
       <li class="nav-item">
         <a class="nav-link" routerLink="/notes">Notes</a>
       </li>
@@ -52,4 +48,13 @@
 
 <div class="container mt-3">
   <router-outlet></router-outlet>
-</div> 
+</div>
+<!-- footer -->
+<div class="container-fluid" style="position: absolute; bottom: 0">
+  <blockquote class="blockquote text-center">
+    <p class="mb-0">This App is made using Angular 17 and Node JS, MongoDb</p>
+    <footer class="blockquote-footer mt-1">
+      created by <cite title="Source Title">Rakesh Gupta</cite>
+    </footer>
+  </blockquote>
+</div>

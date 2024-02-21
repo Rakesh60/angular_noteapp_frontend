@@ -16,7 +16,8 @@ const routes: Routes = [
   { path: 'userform', component: UserformComponent },
   { path: 'notes', component: NotesComponent },
   { path: 'notesform', component: NotesFormComponent },
-  { path: '', redirectTo: '/users', pathMatch: 'full' }, // Default route
+  // { path: '', redirectTo: '/users', pathMatch: 'full' }, // Default route
+  { path: '', redirectTo: '/notes', pathMatch: 'full' }, // Default route
   { path: 'notes/update/:id', component: UpdateFormComponent }
 ];
 
