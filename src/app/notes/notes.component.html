@@ -1,12 +1,12 @@
 <div class="container">
   <div id="alert" style="display: none;" class="alert alert-warning alert-dismissible fade show" role="alert">
-    <div></div>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    <button type="button" class="btn btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
  
   <p>You have Total {{ data?data.length:'0' }} Notes</p>
   <button class="btn btn-warning mb-3" (click)="toggleCardSection()">
-    Get All Notes
+     
+    {{showCardSection?'Get Titles':'Get All Notes'}}
   </button>
 
   <div *ngIf="showCardSection">
@@ -27,4 +27,21 @@
     </div>
 </div>
 
+</div>
+<br>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container bootstrap snippets bootdey" *ngIf="!showCardSection">
+    <div class="row">
+		<ul class="notes">
+            <li *ngFor="let d of data">
+                <div class="rotate-1 lazur-bg" >
+                    <small>{{ d.createdAt | date:'short' }}</small>
+                    <h4>{{ d.title|titlecase}}</h4>
+                   
+                    
+                </div>
+            </li>   
+           
+		</ul>  
+	</div>
 </div>
