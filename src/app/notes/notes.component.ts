@@ -27,13 +27,13 @@ export class NotesComponent {
     this.noteData.deleteNote(noteId).subscribe(
       (res) => {
         //console.log(res.message)
-        this.myAlert(res.message)
+        this.deleteAlert(res.message)
         console.log('Note deleted successfully');
         // After deletion, you might want to update the notes list by fetching them again
         this.noteData.getNotes().subscribe((res) => {
           this.data = res;
           console.log(res)
-          
+
         });
       },
       (error) => {
@@ -48,21 +48,23 @@ export class NotesComponent {
     // You can also directly call the update method here if you want to update the note in the same page.
     console.log('Update note:', note);
     this.router.navigate(['/notes/update', note]);
-    
+
   }
 
 
-  myAlert(msg:any){
+  deleteAlert(msg: any) {
     const node = document.createElement("p");
-    const m=document.getElementById('alert');
-   if (m!=null) {
-    m.style.display='block';
-    m.appendChild(node).textContent=msg
-    setTimeout(()=>{
-      m.appendChild(node).textContent=""
-      m.style.display='none';
-     },2000)
+    const m = document.getElementById('alert');
+    if (m != null) {
+      m.style.display = 'block';
+      m.className = 'alert alert-danger alert-dismissible fade show '
+
+      m.appendChild(node).textContent = msg
+      setTimeout(() => {
+        m.appendChild(node).textContent = ""
+        m.style.display = 'none';
+      }, 2000)
     }
-   } 
-  
+  }
+
 }

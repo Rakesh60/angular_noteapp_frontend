@@ -8,7 +8,7 @@ import { UserformComponent } from './userform/userform.component';
 import { NotesComponent } from './notes/notes.component';
 import { NotesFormComponent } from './notes-form/notes-form.component';
 import { FormsModule } from '@angular/forms';
-import { Router, RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { UpdateFormComponent } from './update-form/update-form.component';
 
 const routes: Routes = [
