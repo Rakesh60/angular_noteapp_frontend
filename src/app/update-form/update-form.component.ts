@@ -30,10 +30,11 @@ export class UpdateFormComponent implements OnInit {
 
   onSubmit(): void {
     const noteId = this.route.snapshot.paramMap.get('id');
+    this.myAlert(noteId)
     this.noteData.updateNote(noteId, this.formData).subscribe(() => {
       // Handle successful update
       console.log('Form submitted successfully');
-      // Clear the form input fields
+      
       this.router.navigate(['/notes']).then(() => {
         console.log('Navigated to /notes');
       }).catch(error => {
@@ -44,5 +45,18 @@ export class UpdateFormComponent implements OnInit {
       console.error('Error updating note:', error);
     });
   }
+  myAlert(msg:any){
+    const node = document.createElement("p");
+    const m=document.getElementById('alert');
+   if (m!=null) {
+    m.style.display='block';
+    m.className='alert alert-success '
+    m.appendChild(node).textContent=msg
+    setTimeout(()=>{
+      m.appendChild(node).textContent=""
+      m.style.display='none';
+     },2000)
+    }
+   } 
 
 }

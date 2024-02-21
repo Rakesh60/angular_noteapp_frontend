@@ -1,5 +1,9 @@
 <div class="container">
-  <p>notes works!</p>
+  <div id="alert" style="display: none;" class="alert alert-warning alert-dismissible fade show" role="alert">
+    <div></div>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+ 
   <p>You have Total {{ data?data.length:'0' }} Notes</p>
   <button class="btn btn-warning mb-3" (click)="toggleCardSection()">
     Get All Notes
@@ -15,7 +19,9 @@
                 <input type="hidden" name="" value="{{ d._id }}" />
                 <button class="btn btn-small btn-danger" (click)="deleteNote(d._id)">Delete</button>
                 <button class="btn btn-small btn-primary" (click)="updateNoteForm(d._id)">Update</button>
-                <div></div>
+                <div class="mymodals">
+
+                </div>
             </div>
         </div>
     </div>
