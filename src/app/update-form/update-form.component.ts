@@ -18,20 +18,26 @@ export class UpdateFormComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.loadFormData();
+  }
+
+  async loadFormData(): Promise<void> {
     const noteId = this.route.snapshot.paramMap.get('id');
 
     if (noteId) {
-      this.noteData.getNoteById(noteId).subscribe((note: any) => {
+      try {
+        const note: any = await this.noteData.getNoteById(noteId).toPromise();
         // Merge the response data into formData
         this.formData = { ...this.formData, ...note };
-      });
+      } catch (error) {
+        console.error('Error fetching note:', error);
+      }
     }
   }
 
   async onSubmit(): Promise<void> {
     try {
       const noteId = this.route.snapshot.paramMap.get('id');
-
 
       await this.noteData.updateNote(noteId, this.formData).toPromise();
 
@@ -47,18 +53,17 @@ export class UpdateFormComponent implements OnInit {
     }
   }
 
-  updateAlert(msg: any) {
-  
+  updateAlert(msg: any): void {
     const node = document.createElement("p");
     const m = document.getElementById('alert');
     if (m != null) {
       m.style.display = 'block';
-      m.className = 'alert alert-success alert-dismissible fade show '
-      m.appendChild(node).textContent = msg.toUpperCase()+" Updated Successfully"
+      m.className = 'alert alert-success alert-dismissible fade show ';
+      m.appendChild(node).textContent = msg.toUpperCase() + " Updated Successfully";
       setTimeout(() => {
-        m.appendChild(node).textContent = ""
+        m.appendChild(node).textContent = "";
         m.style.display = 'none';
-      }, 2000)
+      }, 2000);
     }
   }
 

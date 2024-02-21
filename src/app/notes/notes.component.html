@@ -1,3 +1,6 @@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+<!-- Top nav of notesCard -->
 <div class="container">
   <div id="alert" style="display: none;" class="alert alert-warning alert-dismissible fade show" role="alert">
     <button type="button" class="btn btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -8,34 +11,17 @@
      
     {{showCardSection?'Get Titles':'Get All Notes'}}
   </button>
-
-  <div *ngIf="showCardSection">
-    <div class="row">
-        <div class="col-md-1 col-lg-4" *ngFor="let d of data">
-            <div class="card mt-3 " >
-                <h1>{{ d.title }}</h1>
-                <p>{{ d.content }}</p>
-                <p>{{ d.createdAt | date }}</p>
-                <input type="hidden" name="" value="{{ d._id }}" />
-                <button class="btn btn-small btn-danger" (click)="deleteNote(d._id)">Delete</button>
-                <button class="btn btn-small btn-primary" (click)="updateNoteForm(d._id)">Update</button>
-                <div class="mymodals">
-
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
 
-</div>
 <br>
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<!-- Summary section -->
 <div class="container bootstrap snippets bootdey" *ngIf="!showCardSection">
     <div class="row">
 		<ul class="notes">
             <li *ngFor="let d of data">
                 <div class="rotate-1 lazur-bg" >
-                    <small>{{ d.createdAt | date:'short' }}</small>
+                  
+                    <small>{{ d.createdAt | date:'short' }} </small>
                     <h4>{{ d.title|titlecase}}</h4>
                    
                     
@@ -44,4 +30,28 @@
            
 		</ul>  
 	</div>
+</div>
+
+<!-- Card Section -->
+<div class="container" *ngIf="showCardSection">
+  <div class="row">
+    <!-- Note Card -->
+    <div class="col-lg-4 col-md-6 col-sm-12" *ngFor="let d of data">
+      <div class="card mt-2">
+        <div class="card-body ">
+          <h5 class="card-title">{{d.title}}</h5>
+          <p class="card-text">{{d.content}}</p>
+          <p class="card-text"><small class="text-muted">Date: {{d.createdAt|date:'short'}}</small></p>
+          <!-- Edit and Delete Icons -->
+        
+          <button type="button" class="btn btn-link text-primary mx-4" (click)="updateNoteForm(d._id)"><i class="fas fa-edit"></i></button>
+          <button type="button" class="btn btn-link text-danger" (click)="deleteNote(d._id)"><i class="fas fa-trash-alt"></i></button>
+        
+          
+        </div>
+      </div>
+    </div>
+    <!-- End Note Card -->
+    
+  </div>
 </div>
