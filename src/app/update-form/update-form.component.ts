@@ -48,12 +48,13 @@ export class UpdateFormComponent implements OnInit {
   }
 
   updateAlert(msg: any) {
+  
     const node = document.createElement("p");
     const m = document.getElementById('alert');
     if (m != null) {
       m.style.display = 'block';
       m.className = 'alert alert-success alert-dismissible fade show '
-      m.appendChild(node).textContent = msg
+      m.appendChild(node).textContent = msg.toUpperCase()+" Updated Successfully"
       setTimeout(() => {
         m.appendChild(node).textContent = ""
         m.style.display = 'none';
