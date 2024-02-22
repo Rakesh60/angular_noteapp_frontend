@@ -21,7 +21,7 @@
         required
       ></textarea>
     </div>
-
-    <button type="submit" class="btn btn-success mt-2">Add note</button>
+    
+    <button [disabled]="formData.title.length>13?true:false"  type="submit" class="btn btn-success mt-2" >Add note</button>
   </form>
 </div>

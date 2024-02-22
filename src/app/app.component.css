@@ -1,0 +1,18 @@
+/* Footer styles */
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+   
+    text-align: center; /* Centered text */
+    padding: 2px 0; /* Padding */
+  }
+  
+  /* Media query for mobile screens */
+  @media screen and (max-width: 768px) {
+    .footer {
+      position: static; /* Remove fixed positioning on mobile */
+    }
+  }
+  

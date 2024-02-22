@@ -8,7 +8,7 @@ import { DoCheck } from '@angular/core';
 })
 //http://192.168.1.106:4200/notes
 export class PostService implements DoCheck {
-  private url = 'http://192.168.1.106:8080/';
+  private url = 'http://localhost:4500/';
   ngDoCheck(): void {
     this.getNotes()
   }
