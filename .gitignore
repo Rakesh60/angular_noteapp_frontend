@@ -9,6 +9,7 @@
 # Node
 /node_modules
 angular_notes_backend/node_modules
+crud/angular-crud-mongodb/node_modules
 npm-debug.log
 yarn-error.log
 

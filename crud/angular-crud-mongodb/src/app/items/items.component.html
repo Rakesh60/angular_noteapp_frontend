@@ -1,0 +1,19 @@
+<div class="container">
+    <h2>Items List</h2>
+    <ul>
+      <li *ngFor="let item of items">
+        {{ item.name }} - {{ item.description }}
+        <button (click)="deleteItem(item._id)">Delete</button>
+      </li>
+    </ul>
+  
+    <h2>Create New Item</h2>
+    <form (ngSubmit)="createItem()">
+      <!-- Set name attribute for ngModel -->
+      <input [(ngModel)]="newItem.name" name="name" placeholder="Name">
+      <!-- Set name attribute for ngModel -->
+      <input type="text" [(ngModel)]="newItem.description" name="description" placeholder="Description">
+      <button type="submit">Create</button>
+    </form>
+  </div>
+  
